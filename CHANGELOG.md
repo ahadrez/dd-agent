@@ -2,7 +2,7 @@ Changes
 =======
 
 # 5.12.0 / unreleased
-**Linux, Windows and Docker**
+**Linux, Windows, Docker and Source Install**
 
 ### Details
 
