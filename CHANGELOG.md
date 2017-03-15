@@ -20,6 +20,44 @@ The Windows agent is now digitally signed.
 
 * Twemproxy. See https://github.com/datadog/dd-agent/pull/15
 
+### Updated integrations
+
+* ActiveMQ
+* Consul
+* Couchbase
+* Disk
+* DNS Check
+* Docker
+* Docker Daemon
+* Elasticsearch
+* Etcd
+* JMXFetch
+* Http Check
+* HAProxy
+* IIS
+* Kubernetes
+* Marathon
+* Mesos
+* Mongo
+* MySQL
+* Network
+* OpenStack
+* PowerDNS
+* PGBouncer
+* PHP FPM
+* Postgres
+* Process
+* Redis
+* Spark
+* SQLServer
+* Riak
+* TCP Check
+* TokuMX
+* VSphere
+* Windows
+* Yarn
+* Zookeeper
+
 ### Dependency Upgrades
 
 * docker-py `1.10.6` (previously `1.8.1`). See [docker-py's changelog](https://github.com/docker/docker-py/blob/master/docs/change-log.md)
@@ -102,7 +140,6 @@ The Windows agent is now digitally signed.
 * [Improvement] Zookeeper: Include user specified tags. See [#3078][]. (Thanks [@arzarif][])
 
 * [Bugfix] Aggregator: Parse tags even if sample rate is bad. See [#3073][]
-* [Bugfix] Elasticsearch: Fix autoconf to use the correct port. See [#3129][]
 * [Bugfix] Core: Fix config parsing when variable is missing. See [#3041][]
 * [Bugfix] Core: Exclude sensitive data from Google Cloud metadata. See [#3076][]
 * [Bugfix] Core: Stops agent from dying when no proc table is returned. See [#3043][] (Thanks [@ahamilton55][])
@@ -110,6 +147,7 @@ The Windows agent is now digitally signed.
 * [Bugfix] Docker: Fix whitelist pattern matching. See [#3048][]
 * [Bugfix] Docker: Fix image tag extraction. See [#3172][]
 * [Bugfix] Docker Daemon: Report as many cgroup metrics as possible. See [#3134][]
+* [Bugfix] Elasticsearch: Fix autoconf to use the correct port. See [#3129][]
 * [Bugfix] Flare: Fix config file parsing. See [#3040][], [#3059][]
 * [Bugfix] Http Check: Fix content match for non ascii characters. See [#3100][]
 * [Bugfix] IIS: Fix is_2008 option. See [#3039][]
@@ -1002,7 +1040,7 @@ The `wmi_check` now only supports `%` as the wildcard character in the `filters`
 * [IMPROVEMENT] MongoDB: Tag mongo instances by replset state. See [#2244][] (Thanks [@rhwlo][])
 * [IMPROVEMENT] SNMP: Improve performance by running instances of the check in parallel. See [#2152][]
 * [IMPROVEMENT] SNMP: Make MIB constraint enforcement optional and improve resilience. See [#2268][]
-* [IMPROVEMENT] TeamCity: Allow disabling ssl validation. See [#2091][] (Thanks [@jslatts][])
+* [IMPROVEMENT] TeamCity: AlAllow disabling ssl validation. See [#2091][] (Thanks [@jslatts][])
 * [IMPROVEMENT] Unix: Revamp source install script. See [#2198][] and [#2199][]
 * [IMPROVEMENT] vSphere: Add `network.received` and `network.transmitted` to the basic metrics collected. See [#1824][]
 * [IMPROVEMENT] vSphere: Check metric type to determine how to report (`rate` or `gauge`). See [#2115][]
