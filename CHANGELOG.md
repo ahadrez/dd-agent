@@ -16,69 +16,76 @@ The Windows agent is now always installed as a "per-machine"; previous versions 
 
 The Windows agent is now digitally signed.
 
+### New Integrations
+
+* Twemproxy. See [DataDog/integrations-core/pull/15](https://github.com/datadog/integrations-core/pull/15)
+
+### Python dependencies upgrade
+
+* kafka-python `1.3.1` (previously `1.2.5`). See [kafka-python's changelog](https://github.com/dpkp/kafka-python/blob/master/CHANGES.md)
+* pyro4 `4.36` (previously `4.35`, Thanks [@jeffwidman][]). See [pyro4's changelog](https://pythonhosted.org/Pyro4/changelog.html)
+* psycopg2 `2.6.2` (previously `2.6`). See [psycopg2's changelog](http://initd.org/psycopg/docs/news.html)
+* docker-py `1.10.6` (previously `1.8.1`). See [docker-py's changelog](https://github.com/docker/docker-py/blob/master/docs/change-log.md)
+* requests `2.11.1` (previously `2.6.2`). See [requests's changelog](https://github.com/kennethreitz/requests/blob/master/HISTORY.rst)
+
 ### Changes
 
-* [Improvement] Docker Daemon: Make Docker Healthcheck a Service Check. See [#2859][]
-* [Improvement] Kubernetes: handle multiple namespaces. See [#3028][]
-* [Improvement] DNS Check: Change to a network check. See [#2924][]
-* [Improvement] HAProxy: Use Unix Socket URLs. See [#3005][] (Thanks [@sj26][])
-* [Improvement] Etcd: Report errors connecting to etcd endpoint. See [#3007][] (Thanks [@pbitty][])
-* [Improvement] Postgres: Makes db size collection optional. See [#3035][] (Thanks [@jstotzs][])
-* [Improvement] Service Discovery, JMX: Allows JMX Checks to use Service Discovery. See [#3010][], [#3150][]
 * [Improvement] Core: Allows developer mode to be used without profiling. See [#2898][] (Thanks [@cberry777][])
+* [Improvement] DNS Check: Change to a network check. See [#2924][]
+* [Improvement] DNS Check: Support monitoring performance of NXDOMAIN queries. See [#2849][]. (Thanks [@jnewland][])
+* [Improvement] Docker Daemon: Make Docker Healthcheck a Service Check. See [#2859][]
+* [Improvement] Etcd: Report errors connecting to etcd endpoint. See [#3007][] (Thanks [@pbitty][])
+* [Improvement] HAProxy: Use Unix Socket URLs. See [#3005][] (Thanks [@sj26][])
+* [Improvement] HAProxy: Add support for haproxy.backend.uptime. See [#2639][]
+* [Improvement] Http Check: Mark the Service Check as down if result matches content match option. See [#3069][]
+* [Improvement] Kubernetes: handle multiple namespaces. See [#3028][]
 * [Improvement] Kubernetes: Allow kublet host to be specified from environment. See [#3051][] (Thanks [@stonith][])
 * [Improvement] Kubernetes: Add image_name and image_tag to container metrics. See [#2990][] (Thanks [@tarvip][])
-* [Improvement] Yarn: Add configurable application tags. See [#3041][]
-* [Improvement] Service Discovery: Add a Zookeeper backend. See [#3038][]
-* [Improvement] Packaging: Bump kafka-python to 1.3.1. See [#3097][] (Thanks [@jeffwidman][])
-* [Improvement] Packaging: Bump pyro4 to 4.36. See [#3098][]
 * [Improvement] Kubernetes State: Add State metrics for pods and containers. See [#3070][]. (Thanks [@therc][])
-* [Improvement] Packaging: Upgrade docker-py to 1.10.6. See [#3108][]
-* [Improvement] Marathon: Add option to disable SSL validation and support groups. See [#3140][]. (Thanks [@Carles-Figuerola][])
-* [Improvement] Http Check: Mark the Service Check as down if result matches content match option. See [#3069][]
-* [Improvement] Service Discovery: Use a template cache to reduce calls to template store. See [#3060][]
 * [Improvement] Kubernetes: Support api server auth with a cert. See [#3145][]
+* [Improvement] Kubernetes: Allow configurable custom certs. See [#3160][]
+* [Improvement] Marathon: Add option to disable SSL validation and support groups. See [#3140][]. (Thanks [@Carles-Figuerola][])
 * [Improvement] MySQL: Add another format for innodb writes innodb. See [#3148][]
 * [Improvement] Network: Add InCsumErrors to UDP metrics. See [#3117][]. (Thanks [@diver-in-sky][])
-* [Improvement] Zookeeper: Include user specified tags. See [#3078][]. (Thanks [@arzarif][])
-* [Improvement] Redis: Bump python lib to 2.10.3 See [#3157][]
-* [Improvement] VSphere: Improve tagging, v6 compatibility, infrastructure reporting and performance. See [#3055][]
-* [Improvement] Kubernetes: Allow configurable custom certs. See [#3160][]
-* [Improvement] Redis: Add some additional metrics. See [#2749][]
-* [Improvement] HAProxy: Add support for haproxy.backend.uptime. See [#2639][]
 * [Improvement] PHP-FPM: Include Custom Tags in Service Check. See [#3109][]
-* [Improvement] DNS Check: Support monitoring performance of NXDOMAIN queries. See [#2849][]. (Thanks [@jnewland][])
 * [Improvement] PHP-FPM: Add http_host tag to metrics. See [#3165][], [#3074][]. (Thanks [@toksvaeth][])
-* [Improvement] TCP Check: add instance tags to respose_time metric. See [#3118][]. (Thanks [@mberner-ch][])
 * [Improvement] PowerDNS: Add support for v4. See [#3166][], [#3066][]. (Thanks [@jimmystewpot][])
+* [Improvement] Postgres: Makes db size collection optional. See [#3035][] (Thanks [@jstotzs][])
+* [Improvement] Redis: Bump python lib to 2.10.3 See [#3157][]
+* [Improvement] Redis: Add some additional metrics. See [#2749][]
 * [Improvement] Riak: Add support for Riak Security. See: [#2389][], [#3168][]. (Thanks [@hamano][])
-* [Improvement] Postgres: Bump psycopg2 to 2.6.2. See [#3170][]
+* [Improvement] Service Discovery, JMX: Allows JMX Checks to use Service Discovery. See [#3010][], [#3150][]
+* [Improvement] Service Discovery: Add a Zookeeper backend. See [#3038][]
+* [Improvement] Service Discovery: Use a template cache to reduce calls to template store. See [#3060][]
+* [Improvement] TCP Check: add instance tags to respose_time metric. See [#3118][]. (Thanks [@mberner-ch][])
+* [Improvement] VSphere: Improve tagging, v6 compatibility, infrastructure reporting and performance. See [#3055][]
+* [Improvement] Yarn: Add configurable application tags. See [#3041][]
+* [Improvement] Zookeeper: Include user specified tags. See [#3078][]. (Thanks [@arzarif][])
 
-* [Bugfix] Marathon: Catch nodata found errors and report them properly. See [#3127][]
-* [Bugfix] Core: Exclude sensitive data from Google Cloud metadata. See [#3076][]
-* [Bugfix] OpenStack: Fallback to v2 endpoint if v2.1 fails. See [#3154][]
-* [Bugfix] Spark: Properly report job IDs. See [#3111][]
-* [Bugfix] Core: Stops agent from dying when no proc table is returned. See [#3043][] (Thanks [@ahamilton55][])
-* [Bugfix] SQLServer: Stops passwords from leaking into logs. See [#3053][]
-* [Bugfix] Process: No longer errors when process is down. See [#3052][] and [#3049][] (Thanks [@Radstake][])
-* [Bugfix] Kubernetes: Only use annotations for service discovery once per pod. See [#2901][] (Thanks [@mikekap][])
-* [Bugfix] Docker: Fix whitelist pattern matching. See [#3048][]
-* [Bugfix] Kubernetes: Fix tags param in example config file. See [#3044][]
-* [Bugfix] Flare: Fix config file parsing. See [#3040][], [#3059][]
-* [Bugfix] IIS: Fix is_2008 option. See [#3039][]
-* [Bugfix] Process: Send all configured tags with process check. See [#2976][] (Thanks [@jdavisp3][])
-* [Bugfix] Core: Fix config parsing when variable is missing. See [#3041][]
 * [Bugfix] Aggregator: Parse tags even if sample rate is bad. See [#3073][]
-* [Bugfix] Http Check: Fix content match for non ascii characters. See [#3100][]
-* [Bugfix] Docker Daemon: Report as many cgroup metrics as possible. See [#3134][]
 * [Bugfix] Elasticsearch: Fix autoconf to use the correct port. See [#3129][]
-* [Bugfix] Windows GUI: Better detection and termination of old processes on startup. See [#3125][]
+* [Bugfix] Core: Fix config parsing when variable is missing. See [#3041][]
+* [Bugfix] Core: Exclude sensitive data from Google Cloud metadata. See [#3076][]
+* [Bugfix] Core: Stops agent from dying when no proc table is returned. See [#3043][] (Thanks [@ahamilton55][])
+* [Bugfix] Docker: Fix whitelist pattern matching. See [#3048][]
+* [Bugfix] Docker Daemon: Report as many cgroup metrics as possible. See [#3134][]
+* [Bugfix] Flare: Fix config file parsing. See [#3040][], [#3059][]
+* [Bugfix] Http Check: Fix content match for non ascii characters. See [#3100][]
+* [Bugfix] IIS: Fix is_2008 option. See [#3039][]
+* [Bugfix] Kubernetes: Only use annotations for service discovery once per pod. See [#2901][] (Thanks [@mikekap][])
+* [Bugfix] Kubernetes: Fix tags param in example config file. See [#3044][]
+* [Bugfix] Marathon: Catch nodata found errors and report them properly. See [#3127][]
+* [Bugfix] OpenStack: Fallback to v2 endpoint if v2.1 fails. See [#3154][]
+* [Bugfix] Process: No longer errors when process is down. See [#3052][] and [#3049][] (Thanks [@Radstake][])
+* [Bugfix] Process: Send all configured tags with process check. See [#2976][] (Thanks [@jdavisp3][])
+* [Bugfix] Spark: Properly report job IDs. See [#3111][]
+* [Bugfix] SQLServer: Stops passwords from leaking into logs. See [#3053][]
 * [Bugfix] SQLServer: Collect metric list if SQLServer is not up during check init. See [#3067][]
+* [Bugfix] Windows GUI: Better detection and termination of old processes on startup. See [#3125][]
 * [Bugfix] See # (Thanks )
 
 * [Deprecate] Core: hard-deprecate start/stop/restart/status commands. See [#3004][]
 * [Deprecate] ActiveMQ: Remove old JMX config file. See [#3141][]
-
 
 
 # 5.11.3 / 02-27-2017
