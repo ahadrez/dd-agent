@@ -18,7 +18,7 @@ The Windows agent is now digitally signed.
 
 ### New Integrations
 
-* Twemproxy. See https://github.com/datadog/dd-agent/pull/15
+* Twemproxy. See [integrations-core-15](https://github.com/datadog/integrations-core/pull/15)
 
 ### Updated integrations
 
