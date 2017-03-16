@@ -83,22 +83,27 @@ The Windows agent is now digitally signed.
 * [Feature] Service Discovery: Add a Zookeeper backend. See [#3038][]
 * [Feature] Service Discovery: Use a template cache to reduce calls to template store. See [#3060][]
 * [Feature] Service Discovery: Add namespace, daemon_set and replica_set tags for kubernetes. See [#3176][]
+* [Feature] Windows: Adds new service and packaging. See [#2417][], [#3244][]
 
 * [Improvement] Core: Allows developer mode to be used without profiling. See [#2898][] (Thanks [@cberry777][])
 * [Improvement] Core: Better EC2 detection. See [#3174][]
 * [Improvement] Core: Splits the payload into a legacy payload and a metrics payload. See [#3180][], [#3240][]
+* [Improvement] Forwarder: Validate API Key against any endpoint. See [#3256][]
 * [Improvement] JMXFetch: Print exception messages on Attach API connection failures. See [jmxfetch-122](https://github.com/DataDog/jmxfetch/issues/122) (Thanks [@aoking][])
 * [Improvement] Packaging: Don't require pgp key to be added on every install. [dd-agent-omnibus-143](https://github.com/DataDog/dd-agent-omnibus/pull/143)
+* [Improvement] Windows: Better pagefile memory on Windows. See [#3072][]
 
 * [Bugfix] Aggregator: Parse tags even if sample rate is bad. See [#3073][]
 * [Bugfix] Core: Fix config parsing when variable is missing. See [#3041][]
 * [Bugfix] Core: Exclude sensitive data from Google Cloud metadata. See [#3076][]
 * [Bugfix] Core: Stops agent from dying when no proc table is returned. See [#3043][] (Thanks [@ahamilton55][])
+* [Bugfix] Flare: Fix config file parsing. See [#3040][], [#3059][]
 * [Bugfix] JMXFetch: Allow specifying no alias on detailed attribute. See [jmxfetch-133](https://github.com/DataDog/jmxfetch/issues/133)
 * [Bugfix] JMXFetch: Fix connectivity loss when multiple instances are assigned to a same JVM. See [jmxfetch-124](https://github.com/DataDog/jmxfetch/issues/124)
 * [Bugfix] JMXFetch: Parse string-defined ports to integers in user configurations. See [jmxfetch-121](https://github.com/DataDog/jmxfetch/issues/121)
 * [Bugfix] JMXFetch: Support `java.util.Map` attribute types. See [jmxfetch-130](https://github.com/DataDog/jmxfetch/issues/130)
 * [Bugfix] JMXFetch: Support list-defined user tags at instance level. See [jmxfetch-132](https://github.com/DataDog/jmxfetch/issues/132)
+* [Bugfix] Windows GUI: Better detection and termination of old processes on startup. See [#3125][]
 
 * [Deprecate] Core: hard-deprecate start/stop/restart/status commands. See [#3004][]
 
@@ -123,7 +128,6 @@ The Windows agent is now digitally signed.
 * [Feature] Riak: Add support for Riak Security. See: [#2389][], [#3168][]. (Thanks [@hamano][])
 * [Feature] Riak: Add support for Riak 2.0 LTS. See: [#3189][], [#2762][]. (Thanks [@jcapricebasho][])
 * [Feature] VSphere: Improve tagging, v6 compatibility, infrastructure reporting and performance. See [#3055][]
-* [Feature] Windows: Adds new service and packaging. See [#2417][], [#3244][]
 
 * [Improvement] Consul: Add configuration parameter that overrides `MAX_SERVICES`. See [integrations-core-140](https://github.com/DataDog/integrations-core/pull/140)
 * [Improvement] Couchbase: Add user specified tags to service checks. See [#3079][]. (Thanks [@arzarif][])
@@ -132,9 +136,8 @@ The Windows agent is now digitally signed.
 * [Improvement] Docker: Better detection and handling of incorrect PIDs. See [#3218][], [integrations-core-237](https://github.com/DataDog/integrations-core/pull/237)
 * [Improvement] Docker Daemon: Make Docker Healthcheck a Service Check. See [#2859][]
 * [Improvement] Etcd: Report errors connecting to etcd endpoint. See [#3007][] (Thanks [@pbitty][])
-* [Improvement] Forwarder: Validate API Key against any endpoint. See [#3256][]
 * [Improvement] HTTP Check: Adds optiont to disable default http headers. See [integrations-core-182](https://github.com/DataDog/integrations-core/pull/182). (Thanks [@eredjar][])
-* [Improvement] HTTP Check: Remove noisy debug logging. See [integrations-core-267](https://github.com/DataDog/integrations-core/pull/267s)
+* [Improvement] HTTP Check: Remove noisy debug logging. See [integrations-core-267](https://github.com/DataDog/integrations-core/pull/267)
 * [Improvement] Kubernetes: handle multiple namespaces. See [#3028][]
 * [Improvement] Kubernetes: Support api server auth with a cert. See [#3145][]
 * [Improvement] Kubernetes: Allow configurable custom certs. See [#3160][]
@@ -151,7 +154,6 @@ The Windows agent is now digitally signed.
 * [Improvement] Spark: No events on job status change. See [#3194][]. This is a potentially breaking change, but it was flooding event streams with what, for most people, was useless information.
 * [Improvement] TCP Check: add instance tags to respose_time metric. See [#3118][], [#3206][]. (Thanks [@mberner-ch][])
 * [Improvement] TokuMX: Skip dbs that aren't accessible. See [#3093][]. (Thanks [@pbrisbin][])
-* [Improvement] Windows: Better pagefile memory on Windows. See [#3072][]
 * [Improvement] Yarn: Add configurable application tags. See [#3041][], [integrations-core-261](https://github.com/DataDog/integrations-core/pull/261)
 * [Improvement] Zookeeper: Include user specified tags. See [#3078][]. (Thanks [@arzarif][])
 
@@ -160,7 +162,6 @@ The Windows agent is now digitally signed.
 * [Bugfix] Docker: Fix image tag extraction. See [#3172][]
 * [Bugfix] Docker Daemon: Report as many cgroup metrics as possible. See [#3134][]
 * [Bugfix] Elasticsearch: Fix autoconf to use the correct port. See [#3129][]
-* [Bugfix] Flare: Fix config file parsing. See [#3040][], [#3059][]
 * [Bugfix] Http Check: Fix content match for non ascii characters. See [#3100][]
 * [Bugfix] IIS: Fix is_2008 option. See [#3039][]
 * [Bugfix] Kubernetes: Only use annotations for service discovery once per pod. See [#2901][] (Thanks [@mikekap][])
@@ -177,7 +178,6 @@ The Windows agent is now digitally signed.
 * [Bugfix] Spark: Fix event source name. See [#3193][]
 * [Bugfix] SQLServer: Stops passwords from leaking into logs. See [#3053][]
 * [Bugfix] SQLServer: Collect metric list if SQLServer is not up during check init. See [#3067][]
-* [Bugfix] Windows GUI: Better detection and termination of old processes on startup. See [#3125][]
 
 * [Deprecate] ActiveMQ: Remove old JMX config file. See [#3141][]
 
